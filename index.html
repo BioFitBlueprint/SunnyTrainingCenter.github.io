@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sun Training Center | Personal Training & Martial Arts in Concord, MA</title>
+  
+  <meta name="description" content="Sun Training Center in Concord, MA. Directed by Master Sunny Fong, offering personal training, Tai Chi, Taekwondo, and Zhong Chi Chuan.">
+  <meta name="robots" content="index, follow">
+
+  <style>
+    /* ==========================================================================
+       COLOR PALETTE & VARIABLES (Charcoal, Beige, Soft Gray)
+       ========================================================================== */
+    :root {
+      --bg-dark: #18181b;       /* Deep Charcoal */
+      --card-bg: #27272a;       /* Dark Neutral Gray */
+      --card-hover: #3f3f46;    /* Soft Gray Highlight */
+      --accent-beige: #e7e5e4;  /* Warm Beige */
+      --accent-gold: #f59e0b;   /* Warm Energy Accent */
+      --text-light: #fafafa;    /* Off-White Header Text */
+      --text-muted: #a1a1aa;    /* Cool Gray Body Text */
+      --border-color: #3f3f46;  /* Neutral Border */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    nav {
+      background-color: rgba(24, 24, 27, 0.95);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-container {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+    }
+
+    .brand-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--accent-beige);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .brand-logo span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-tab {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .nav-tab:hover, .nav-tab.active {
+      color: var(--bg-dark);
+      background-color: var(--accent-beige);
+    }
+
+    /* ==========================================================================
+       LAYOUT CONTAINER & PAGE TABS
+       ========================================================================== */
+    main {
+      flex: 1;
+      max-width: 1050px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .page-view {
+      display: none;
+      animation: fadeIn 0.35s ease-in-out forwards;
+    }
+
+    .page-view.active-page {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & HERO SECTION
+       ========================================================================== */
+    .hero {
+      text-align: center;
+      padding: 40px 0 50px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: var(--accent-beige);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p.subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+    }
+
+    .quote-banner {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-beige);
+      border-radius: 6px;
+      font-style: italic;
+      color: var(--accent-beige);
+      font-size: 1.05rem;
+    }
+
+    .quote-author {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent-beige);
+      margin-bottom: 24px;
+      letter-spacing: -0.3px;
+    }
+
+    /* ==========================================================================
+       GRID & CARDS (Home & About)
+       ========================================================================== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 28px;
+      border-radius: 12px;
+      transition: border-color 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent-beige);
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent-gold);
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* Advantage List */
+    .advantage-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .advantage-item {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 18px 20px;
+      border-radius: 8px;
+      color: var(--accent-beige);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .advantage-item::before {
+      content: "✓";
+      color: var(--accent-gold);
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       TABLES (Schedule & Pricing)
+       ========================================================================== */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    th, td {
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #1f1f23;
+      color: var(--accent-beige);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    td {
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    td strong {
+      color: var(--text-light);
+    }
+
+    /* Call To Action Box */
+    .cta-banner {
+      background: linear-gradient(135deg, #27272a, #1f1f23);
+      border: 1px solid var(--accent-beige);
+      padding: 36px 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .cta-banner h3 {
+      font-size: 1.5rem;
+      color: var(--accent-beige);
+      margin-bottom: 10px;
+    }
+
+    .cta-banner p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--accent-beige);
+      color: var(--bg-dark);
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #ffffff;
+    }
+
+    /* ==========================================================================
+       CONTACT PAGE STYLES
+       ========================================================================== */
+    .contact-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 36px;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .contact-info-group {
+      margin-bottom: 24px;
+    }
+
+    .contact-info-group label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-gold);
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .contact-info-group p, .contact-info-group a {
+      font-size: 1.1rem;
+      color: var(--accent-beige);
+      text-decoration: none;
+    }
+
+    .contact-info-group a:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: auto;
+    }
+
+    /* Responsive Design Adjustments */
+    @media (max-width: 600px) {
+      h1 { font-size: 2.1rem; }
+      .nav-container { flex-direction: column; gap: 15px; }
+      .advantage-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="brand-logo" onclick="switchTab('home')">Sun <span>Training</span> Center</a>
+      <ul class="nav-links">
+        <li><button class="nav-tab active" id="tab-home" onclick="switchTab('home')">Home</button></li>
+        <li><button class="nav-tab" id="tab-about" onclick="switchTab('about')">About</button></li>
+        <li><button class="nav-tab" id="tab-contact" onclick="switchTab('contact')">Contact</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <div id="page-home" class="page-view active-page">
+      <header class="hero">
+        <h1>Sun Training Center</h1>
+        <p class="subtitle">Personal Training & Master Martial Arts Instruction</p>
+        
+        <div class="quote-banner">
+          "Be active. Be fit. Be alive. The best time to get in shape was twenty years ago; the second best time is now."
+          <span class="quote-author">— Sunny Fong</span>
+        </div>
+      </header>
+
+      <section>
+        <h2>Training Programs</h2>
+        <div class="grid-2">
+          
+          <div class="card">
+            <span class="card-tag">Body</span>
+            <h3>Personal Training</h3>
+            <p>Train directly with studio owner Master Sunny Fong. With over 35 years of dedicated fitness experience, Sunny designs customized exercise routines tailored to your goals. You will achieve progressive, measurable results in a safe and supportive environment.</p>
+          </div>
+
+          <div class="card">
+            <span class="card-tag">Energy</span>
+            <h3>Tai Chi</h3>
+            <p>A traditional Chinese martial art created to maximize chi (internal energy). Regular practice of the Yang style develops flexibility, physical strength, balance, and a profound sense of inner calm.</p>
+          </div>
+
+          <div class="card">
+            <span class="card-tag">Power</span>
+            <h3>Taekwondo</h3>
+            <p>A dynamic Korean martial art featuring explosive kicking and punching. Emphasizes self-defense, Taeguek forms, and character development through the five tenets: courtesy, integrity, perseverance, self-control, and indomitable spirit.</p>
+          </div>
+
+          <div class="card">
+            <span class="card-tag">Mind</span>
+            <h3>Zhong Chi Chuan</h3>
+            <p>An internal martial art developed by Master Fong. Combining slow and fast, soft and hard techniques, this holistic practice develops mental clarity, overall balance, and whole-body strength for adults.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <section>
+        <h2>The Sun Training Center Advantage</h2>
+        <ul class="advantage-list">
+          <li class="advantage-item">No membership or joining fees</li>
+          <li class="advantage-item">100% direct personal attention</li>
+          <li class="advantage-item">Highly knowledgeable master trainer</li>
+          <li class="advantage-item">Flexible, accommodating scheduling</li>
+          <li class="advantage-item">Private, focused training environment</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Schedule & Program Rates</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Program</th>
+                <th>Schedule</th>
+                <th>Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Private Personal Training</strong></td>
+                <td>30 or 60 minute sessions (By Appointment)</td>
+                <td>Paid by Check</td>
+              </tr>
+              <tr>
+                <td><strong>Adult Taekwondo</strong></td>
+                <td>Fridays: 5:15 PM – 6:30 PM (75 mins)</td>
+                <td>$140 / month</td>
+              </tr>
+              <tr>
+                <td><strong>Adult Zhong Chi Chuan</strong></td>
+                <td>Wednesdays: 5:45 PM – 6:45 PM (60 mins)</td>
+                <td>$140 / month</td>
+              </tr>
+              <tr>
+                <td><strong>Advanced Tai Chi</strong></td>
+                <td>Thursdays: 5:00 PM – 6:00 PM (60 mins)</td>
+                <td>$25 / class</td>
+              </tr>
+              <tr>
+                <td><strong>Beginner Tai Chi</strong></td>
+                <td>Thursdays: 6:05 PM – 6:50 PM (45 mins)</td>
+                <td>$20 / class</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="cta-banner">
+        <h3>Still Unsure? Try It Yourself</h3>
+        <p>Schedule a no-obligation trial session with Master Sunny Fong today.</p>
+        <button class="btn-primary" onclick="switchTab('contact')">Get in Touch</button>
+      </div>
+    </div>
+
+
+    <div id="page-about" class="page-view">
+      <header class="hero">
+        <h1>About Sun Training Center</h1>
+        <p class="subtitle">Decades of Expertise in Fitness & Martial Arts</p>
+      </header>
+
+      <section class="card" style="margin-bottom: 40px;">
+        <h3>Master Sunny Fong</h3>
+        <p style="margin-bottom: 16px;">
+          Master Sunny Fong has been a leader in the health and fitness industry for over 35 years. He holds a Bachelor's degree in Health & Fitness and a Master's degree in Exercise Science.
+        </p>
+        <p style="margin-bottom: 16px;">
+          Sunny is a 6th-Degree Black Belt in Taekwondo, certified by the World Taekwondo Federation. While attending graduate school, he studied Yang-style Tai Chi under Grand Master Lijun Cheng during a dedicated Qi Gong research study, and has been teaching the art for 30 years.
+        </p>
+        <div class="quote-banner" style="margin-top: 20px;">
+          "Having discipline is to build a routine that will overcome our instinct to feel comfortable."
+          <span class="quote-author">— Sunny Fong</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>What Clients Say About STC</h2>
+        <div class="grid-2">
+          
+          <div class="card">
+            <p>"I was a student in Sunny's Tai Chi class while living in Concord and loved learning with him. He is a kind and patient teacher who works exceptionally well with students of all ages. His small class sizes allow individual guidance so everyone can succeed. Highly recommended!"</p>
+            <span class="quote-author" style="margin-top: 15px; display: block;">— Doreen (Concord, MA)</span>
+          </div>
+
+          <div class="card">
+            <p>"14 years after starting martial arts training with Sunny at age 43, I earned my 3rd-degree black belt. I am stronger, fitter, and far more flexible than when we met. I am deeply grateful for his guidance and expertise."</p>
+            <span class="quote-author" style="margin-top: 15px; display: block;">— David (Weston, MA)</span>
+          </div>
+
+          <div class="card">
+            <p>"I've trained with Sunny since I was 13. I've gained strength, endurance, cardio, and confidence. His encouraging demeanor pushes me to be my best in a supportive, uplifting way. Sunny is a strong motivator and caring mentor."</p>
+            <span class="quote-author" style="margin-top: 15px; display: block;">— Josh (Sudbury, MA)</span>
+          </div>
+
+          <div class="card">
+            <p>"After 3 years of training at STC, my persistent shoulder and knee pain are completely gone. My core is much stronger, I feel lighter, and I have far more energy every day."</p>
+            <span class="quote-author" style="margin-top: 15px; display: block;">— Kevin (Sudbury, MA)</span>
+          </div>
+
+          <div class="card">
+            <p>"Following a leg fracture and two surgeries, I lost both my strength and balance. Sunny helped me rebuild my leg strength and regain my balance completely. His comprehensive training made all the difference."</p>
+            <span class="quote-author" style="margin-top: 15px; display: block;">— Lori (Sudbury, MA)</span>
+          </div>
+
+          <div class="card">
+            <p>"Sunny truly understands human anatomy and exercise science. I noticed substantial results in a short period. He keeps workouts varied, engaging, and highly effective."</p>
+            <span class="quote-author" style="margin-top: 15px; display: block;">— Marilyn (Concord, MA)</span>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+
+    <div id="page-contact" class="page-view">
+      <header class="hero">
+        <h1>Contact Master Sunny Fong</h1>
+        <p class="subtitle">Start Your Journey Today</p>
+        
+        <div class="quote-banner" style="max-width: 650px; margin: 25px auto 0;">
+          "Life is not about being perfect; it is about making progress."
+          <span class="quote-author">— Sunny Fong</span>
+        </div>
+      </header>
+
+      <div class="contact-card">
+        <div class="contact-info-group">
+          <label>Studio Location</label>
+          <p><strong>Sun Training Center</strong></p>
+          <p>9 Pond Lane Rd, Damonmill Square</p>
+          <p>Concord, MA 01742</p>
+        </div>
+
+        <div class="contact-info-group">
+          <label>Phone Numbers</label>
+          <p>Studio: <a href="tel:9783692205">(978) 369-2205</a></p>
+          <p>Cell: <a href="tel:9785057380">(978) 505-7380</a></p>
+        </div>
+
+        <div class="contact-info-group" style="margin-bottom: 0;">
+          <label>Email Address</label>
+          <p><a href="mailto:actionfirst@hotmail.com">actionfirst@hotmail.com</a></p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>"It is not how old, but how fit you are that is most important." — Sunny Fong</p>
+    <p style="margin-top: 8px;">&copy; Sun Training Center. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function switchTab(tabName) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page-view');
+      pages.forEach(page => page.classList.remove('active-page'));
+
+      // Deactivate all nav buttons
+      const tabs = document.querySelectorAll('.nav-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Activate selected page and tab
+      document.getElementById('page-' + tabName).classList.add('active-page');
+      document.getElementById('tab-' + tabName).classList.add('active');
+
+      // Scroll to top smoothly
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
