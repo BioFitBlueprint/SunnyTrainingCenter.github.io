@@ -8,30 +8,36 @@
   <meta name="description" content="Sun Training Center in Concord, MA. Directed by Master Sunny Fong, offering personal training, Tai Chi, Taekwondo, and Zhong Chi Chuan.">
   <meta name="robots" content="index, follow">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     /* ==========================================================================
-       COLOR PALETTE & VARIABLES (Charcoal, Beige, Soft Gray)
+       COLOR PALETTE & VARIABLES (Obsidian, Warm Beige, Charcoal & Gold Accent)
        ========================================================================== */
     :root {
-      --bg-dark: #18181b;       /* Deep Charcoal */
-      --card-bg: #27272a;       /* Dark Neutral Gray */
-      --card-hover: #3f3f46;    /* Soft Gray Highlight */
-      --accent-beige: #e7e5e4;  /* Warm Beige */
-      --accent-gold: #f59e0b;   /* Warm Energy Accent */
-      --text-light: #fafafa;    /* Off-White Header Text */
-      --text-muted: #a1a1aa;    /* Cool Gray Body Text */
-      --border-color: #3f3f46;  /* Neutral Border */
+      --bg-gradient-top: #0f0f12;  /* Deep Charcoal Slate */
+      --bg-gradient-bot: #18181c;  /* Soft Dark Gray */
+      --card-bg: rgba(30, 30, 36, 0.75); /* Translucent Layered Charcoal */
+      --card-hover-bg: #27272e;    /* Hover Highlight Gray */
+      --accent-beige: #f5f2eb;    /* Warm Soft Cream Beige */
+      --accent-gold: #d97706;     /* Deep Gold Energy Accent */
+      --text-light: #f8fafc;      /* Crisp Off-White */
+      --text-muted: #94a3b8;      /* Neutral Silver Gray */
+      --border-color: rgba(229, 231, 235, 0.12); /* Subtle Glass Border */
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
-      background-color: var(--bg-dark);
+      background: linear-gradient(180deg, var(--bg-gradient-top) 0%, var(--bg-gradient-bot) 100%);
+      background-attachment: fixed;
       color: var(--text-light);
       line-height: 1.6;
       display: flex;
@@ -39,16 +45,22 @@
       min-height: 100vh;
     }
 
+    /* Headings */
+    h1, h2, h3, .brand-logo {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
+    }
+
     /* ==========================================================================
        NAVIGATION BAR
        ========================================================================== */
     nav {
-      background-color: rgba(24, 24, 27, 0.95);
+      background-color: rgba(15, 15, 18, 0.85);
       border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
     }
 
     .nav-container {
@@ -61,9 +73,8 @@
     }
 
     .brand-logo {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 700;
-      letter-spacing: 1px;
       color: var(--accent-beige);
       text-decoration: none;
       text-transform: uppercase;
@@ -75,25 +86,31 @@
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 15px;
       list-style: none;
     }
 
     .nav-tab {
       background: none;
-      border: none;
+      border: 1px solid transparent;
       color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 500;
       cursor: pointer;
-      padding: 8px 12px;
+      padding: 8px 16px;
       border-radius: 6px;
       transition: all 0.25s ease;
     }
 
-    .nav-tab:hover, .nav-tab.active {
-      color: var(--bg-dark);
+    .nav-tab:hover {
+      color: var(--accent-beige);
+      border-color: var(--border-color);
+    }
+
+    .nav-tab.active {
+      color: var(--bg-gradient-top);
       background-color: var(--accent-beige);
+      font-weight: 600;
     }
 
     /* ==========================================================================
@@ -117,7 +134,7 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -126,49 +143,54 @@
        ========================================================================== */
     .hero {
       text-align: center;
-      padding: 40px 0 50px;
+      padding: 50px 20px 50px;
       border-bottom: 1px solid var(--border-color);
       margin-bottom: 40px;
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.75rem;
       color: var(--accent-beige);
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      font-weight: 700;
     }
 
     .hero p.subtitle {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.5px;
     }
 
     .quote-banner {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: var(--card-bg);
-      border-left: 4px solid var(--accent-beige);
+      margin-top: 35px;
+      padding: 24px;
+      background: rgba(245, 242, 235, 0.04);
+      border-left: 3px solid var(--accent-gold);
       border-radius: 6px;
       font-style: italic;
       color: var(--accent-beige);
       font-size: 1.05rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
     }
 
     .quote-author {
       display: block;
-      margin-top: 8px;
+      margin-top: 10px;
       font-style: normal;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
     }
 
     h2 {
       font-size: 1.8rem;
       color: var(--accent-beige);
       margin-bottom: 24px;
-      letter-spacing: -0.3px;
+      font-weight: 600;
     }
 
     /* ==========================================================================
@@ -184,13 +206,17 @@
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
-      padding: 28px;
+      padding: 30px;
       border-radius: 12px;
-      transition: border-color 0.25s ease;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
     .card:hover {
-      border-color: var(--accent-beige);
+      background-color: var(--card-hover-bg);
+      border-color: rgba(245, 242, 235, 0.25);
+      transform: translateY(-2px);
     }
 
     .card-tag {
@@ -198,21 +224,22 @@
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.5px;
       color: var(--accent-gold);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .card h3 {
-      font-size: 1.35rem;
-      color: var(--text-light);
+      font-size: 1.3rem;
+      color: var(--accent-beige);
       margin-bottom: 12px;
     }
 
     .card p {
       color: var(--text-muted);
       font-size: 0.95rem;
-      line-height: 1.65;
+      line-height: 1.7;
+      font-weight: 300;
     }
 
     /* Advantage List */
@@ -227,19 +254,20 @@
     .advantage-item {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
-      padding: 18px 20px;
+      padding: 20px;
       border-radius: 8px;
       color: var(--accent-beige);
-      font-weight: 500;
+      font-weight: 400;
+      font-size: 0.95rem;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .advantage-item::before {
-      content: "✓";
+      content: "✦";
       color: var(--accent-gold);
-      font-weight: bold;
+      font-size: 0.9rem;
     }
 
     /* ==========================================================================
@@ -254,27 +282,30 @@
       width: 100%;
       border-collapse: collapse;
       background-color: var(--card-bg);
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--border-color);
     }
 
     th, td {
-      padding: 16px 20px;
+      padding: 18px 20px;
       text-align: left;
       font-size: 0.95rem;
     }
 
     th {
-      background-color: #1f1f23;
+      background-color: rgba(15, 15, 18, 0.6);
       color: var(--accent-beige);
       font-weight: 600;
       border-bottom: 1px solid var(--border-color);
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
     }
 
     td {
       border-bottom: 1px solid var(--border-color);
       color: var(--text-muted);
+      font-weight: 300;
     }
 
     tr:last-child td {
@@ -282,46 +313,51 @@
     }
 
     td strong {
-      color: var(--text-light);
+      color: var(--accent-beige);
+      font-weight: 500;
     }
 
     /* Call To Action Box */
     .cta-banner {
-      background: linear-gradient(135deg, #27272a, #1f1f23);
-      border: 1px solid var(--accent-beige);
-      padding: 36px 20px;
+      background: linear-gradient(135deg, rgba(39, 39, 46, 0.8), rgba(20, 20, 24, 0.9));
+      border: 1px solid var(--border-color);
+      padding: 40px 20px;
       border-radius: 12px;
       text-align: center;
       margin-top: 20px;
     }
 
     .cta-banner h3 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: var(--accent-beige);
       margin-bottom: 10px;
     }
 
     .cta-banner p {
       color: var(--text-muted);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      font-weight: 300;
     }
 
     .btn-primary {
       display: inline-block;
       background-color: var(--accent-beige);
-      color: var(--bg-dark);
-      padding: 12px 28px;
-      font-size: 0.95rem;
+      color: var(--bg-gradient-top);
+      padding: 12px 30px;
+      font-size: 0.9rem;
       font-weight: 700;
       border-radius: 6px;
       border: none;
       cursor: pointer;
       text-decoration: none;
-      transition: background-color 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.25s ease;
     }
 
     .btn-primary:hover {
       background-color: #ffffff;
+      box-shadow: 0 0 15px rgba(245, 242, 235, 0.3);
     }
 
     /* ==========================================================================
@@ -331,33 +367,36 @@
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 36px;
+      padding: 40px;
       max-width: 650px;
       margin: 0 auto;
+      backdrop-filter: blur(8px);
     }
 
     .contact-info-group {
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .contact-info-group label {
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       color: var(--accent-gold);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       font-weight: 700;
     }
 
     .contact-info-group p, .contact-info-group a {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--accent-beige);
       text-decoration: none;
+      font-weight: 300;
     }
 
     .contact-info-group a:hover {
       text-decoration: underline;
+      color: var(--accent-gold);
     }
 
     /* ==========================================================================
@@ -365,14 +404,14 @@
        ========================================================================== */
     footer {
       border-top: 1px solid var(--border-color);
-      padding: 30px 20px;
+      padding: 35px 20px;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
       margin-top: auto;
+      font-weight: 300;
     }
 
-    /* Responsive Design Adjustments */
     @media (max-width: 600px) {
       h1 { font-size: 2.1rem; }
       .nav-container { flex-direction: column; gap: 15px; }
@@ -497,7 +536,6 @@
       </div>
     </div>
 
-
     <div id="page-about" class="page-view">
       <header class="hero">
         <h1>About Sun Training Center</h1>
@@ -556,7 +594,6 @@
       </section>
     </div>
 
-
     <div id="page-contact" class="page-view">
       <header class="hero">
         <h1>Contact Master Sunny Fong</h1>
@@ -598,19 +635,15 @@
 
   <script>
     function switchTab(tabName) {
-      // Hide all pages
       const pages = document.querySelectorAll('.page-view');
       pages.forEach(page => page.classList.remove('active-page'));
 
-      // Deactivate all nav buttons
       const tabs = document.querySelectorAll('.nav-tab');
       tabs.forEach(tab => tab.classList.remove('active'));
 
-      // Activate selected page and tab
       document.getElementById('page-' + tabName).classList.add('active-page');
       document.getElementById('tab-' + tabName).classList.add('active');
 
-      // Scroll to top smoothly
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
